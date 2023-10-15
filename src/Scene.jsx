@@ -8,7 +8,7 @@ import { useGLTF } from "@react-three/drei";
 function Model(props) {
   const { nodes, materials } = useGLTF("/scene.glb");
   return (
-    <group {...props} dispose={null}>
+    <group scale={0.5} {...props} dispose={null}>
       <mesh
         geometry={nodes.Top_low.geometry}
         material={materials.standardSurface1}
