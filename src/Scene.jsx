@@ -14,12 +14,13 @@ function Model(props) {
         material={materials.standardSurface1}
         position={[0, 3.5, -2.91]}
         rotation={[-1.74, 0, 0]}
+        material-metalness={1}
       />
       <mesh
         geometry={nodes.Bot_low.geometry}
         material={materials.standardSurface1}
         material-metalness={1}
-        material-roughness={0.1}
+        material-roughness={0}
       />
     </group>
   );
