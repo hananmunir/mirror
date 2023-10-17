@@ -1,10 +1,11 @@
-import { useRef, Suspense } from "react";
+import { useRef, Suspense, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import "./App.css";
 import { OrbitControls, Environment } from "@react-three/drei";
 import Model from "./Scene";
 
 function SceneComponent() {
+  const [isOpen, setIsOpen] = useState(true);
   return (
     <div
       style={{
@@ -17,16 +18,19 @@ function SceneComponent() {
         <Environment preset='sunset' />
 
         <Suspense fallback={null}>
-          <Model />
+          <Model isOpen={isOpen} />
         </Suspense>
 
         <OrbitControls
-          autoRotate // If you want to start with rotation
+          //autoRotate // If you want to start with rotation
           maxPolarAngle={Math.PI * 0.495}
           rotateSpeed={0.6}
           panSpeed={0.6}
         />
       </Canvas>
+      <button className="btn" onClick={() => setIsOpen((prev) => !prev)}>
+        {isOpen ? "Close" : "Open"}
+      </button>
     </div>
   );
 }
